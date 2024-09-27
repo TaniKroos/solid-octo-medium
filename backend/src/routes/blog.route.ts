@@ -46,7 +46,8 @@ blogRouter.post('/blog' ,blogMiddleWare, async(c)=>{
         data:{
             title: body.title,
             content: body.content,
-            authorId: userId,
+            authorId: userId, 
+            createdAt: new Date(),
         }
     })
 
@@ -94,12 +95,24 @@ blogRouter.put('/blog' ,blogMiddleWare, async(c)=>{
 
 
 
-blogRouter.get('/blog/blogs' , async(c)=>{
+blogRouter.get('/blog/blogs' ,blogMiddleWare,  async(c)=>{
     const prisma = new PrismaClient({
         datasourceUrl: c.env.DATABASE_URL,
     }).$extends(withAccelerate())
 
-    const blogs  = await prisma.post.findMany();
+    const blogs  = await prisma.post.findMany({
+        select:{
+            content: true,
+            title: true,
+            author: {
+                select:{
+                    username: true,
+                }
+            },
+            id:true,
+            createdAt: true,
+        }
+    });
     return c.json({blogs: blogs})
 
 })
@@ -119,6 +132,16 @@ blogRouter.get('/blog/:id' ,blogMiddleWare, async(c)=>{
             where:{
                 id:  id
             },
+            select:{
+                id: true,
+                title: true,
+                content: true,
+                author: {
+                    select:{
+                        username: true,
+                    }
+                }
+            }
         })  
         return c.json({
             blog,
