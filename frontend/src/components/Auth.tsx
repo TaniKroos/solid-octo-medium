@@ -11,7 +11,7 @@ export const Auth = ({type} : {type: 'signup' | 'signin'}) => {
         email: '',
         password: '',
     })
-    {JSON.stringify(postInput)}
+ 
 
 
     async function sendReq() {

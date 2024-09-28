@@ -7,6 +7,8 @@ export const Publish = () => {
   const [text, setText] = useState("");
 const [title,setTitle] = useState("")
 const navigate = useNavigate();
+            
+console.log(BACKEND_URL)
   return (
     <div className=" flex flex-col">
       <Appbar />
@@ -34,7 +36,7 @@ const navigate = useNavigate();
       <div className="flex justify-center pt-4">
       <button onClick={async()=>{
          const res = await axios.post(`${BACKEND_URL}/api/vi/blog`, {
-
+            
             title,
             content: text,
 
