@@ -51,9 +51,7 @@ export const useBlogs = () => {
         })
             
             .then(response =>{
-                if(!response.data.blog){
-                    navigate('/signin');
-                }
+                 
                 setBlogs(response.data.blogs)
                 setloading(false);
             })
