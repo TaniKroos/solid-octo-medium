@@ -8,22 +8,22 @@ export const Publish = () => {
 const [title,setTitle] = useState("")
 const navigate = useNavigate();
             
-console.log(BACKEND_URL)
+ 
   return (
-    <div className=" flex flex-col">
+    <div className=" flex flex-col h-screen bg-cc2">
       <Appbar />
-      <div className="flex-grow flex justify-center items-center pt-20">
+      <div className="flex-grow flex justify-center items-center ">
         <div className="w-full max-w-4xl">
           <input
            onChange={(e)=>{
             setTitle(e.target.value);
            }}
             placeholder="Title"
-            className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 mb-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+            className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-300 rounded-md px-3 py-2 mb-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
             style={{ marginTop: "0" }} // Reduce margin above title
           />
           <textarea
-            className="w-full h-[300px] bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 mt-4 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow resize-none"
+            className="w-full h-[300px] bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-400 rounded-md px-3 py-2 mt-4 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow resize-none"
             placeholder="Content..."
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -33,7 +33,7 @@ console.log(BACKEND_URL)
 
 
       </div>
-      <div className="flex justify-center pt-4">
+      <div className="flex justify-center mb-20 ">
       <button onClick={async()=>{
          const res = await axios.post(`${BACKEND_URL}/api/vi/blog`, {
             

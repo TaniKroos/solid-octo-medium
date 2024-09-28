@@ -38,7 +38,7 @@ export const Blogg = ({blog} : {blog: Blog}) =>{
                             <div className="text-slate-400  pl-2">
                                     {blog.author.username || "Anonymous "}
                                     <div className="text-slate-400 ">
-                                        Random Catch Phrase
+                                        Eat&Sleep
                                     </div>
                                     </div>
                                    

@@ -10,6 +10,7 @@ import {Blog} from './pages/Blog'
 import {Bloggg} from './pages/OneBlog'
 
 import { Publish } from './pages/Publish'
+import { Hero } from './pages/Hero'
 
 function App() {
   
@@ -19,7 +20,7 @@ function App() {
   
       <BrowserRouter>
         <Routes>
-           <Route path='/' element={<Signin />} /> 
+           <Route path='/' element={<Hero />} /> 
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/blogs" element={<Blog />} />

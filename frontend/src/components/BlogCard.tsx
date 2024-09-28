@@ -32,9 +32,9 @@ export const BlogCard = ({
   
 
         return (
-        <Link to={`blog/${id}`} ><div className="border-b border-slate-200 pt-6 pb-2 w-screen max-w-screen-lg cursor-pointer  ">
+        <Link to={`blog/${id}`} ><div className="border-b border-slate-200 pt-6 pb-2 w-3/4 lg:max-w-screen-lg cursor-pointer mx-4 ">
           
-        <div className="flex">
+        <div className="flex ">
            <div className="flex justify-center flex-col"> <AvatarCard name={authorname}  /></div>
            <div className="font-extralight pl-2"> {authorname}</div> 
            <div className=" flex justify-center flex-col pl-3">
@@ -60,14 +60,14 @@ export const BlogCard = ({
 
 
 function Circle(){
-    return <div className="rounded-full font-xs h-1 w-1 bg-slate-300 ">
+    return <div className="rounded-full font-xs h-1 w-1 bg-slate-500 ">
          
     </div>
 }
 
 export function AvatarCard({name , size = 1.25 } : {name: string, size?: number}){
     return (
-    <div className={`relative inline-flex items-center justify-center   overflow-hidden bg-gray-100 rounded-full dark:bg-gray-300`}
+    <div className={`relative inline-flex items-center justify-center   overflow-hidden bg-gray-300 rounded-full dark:bg-gray-500`}
     style={{ width: `${size}rem`, height: `${size}rem` }} >
         <span className="text-xs font-extralight text-blue-300 dark:text-black-300">{name[0]}</span>
     </div>

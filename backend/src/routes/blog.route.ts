@@ -17,7 +17,7 @@ async function blogMiddleWare(c: Context,next: Next){
     const token = header.split(" ")[1];
     const r = await verify(token,c.env.JWT_SECRET)
     
-    if(r){
+    if(r ){
         c.set('userId',r.id);
         await next()
     }
@@ -28,7 +28,7 @@ async function blogMiddleWare(c: Context,next: Next){
        
         });
     }
-}
+} 
 
 
 blogRouter.post('/blog' ,blogMiddleWare, async(c)=>{

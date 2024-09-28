@@ -15,7 +15,7 @@ export const Bloggg   = () =>{
         </div>
     }
     return (
-        <div>
+        <div className="bg-cc2">
             {/* @ts-ignore */}
            <Blogg blog={blog || { id: "", title: "", content: "", createdAt: new Date(), author: { username: "" } }} />
                    

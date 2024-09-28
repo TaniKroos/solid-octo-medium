@@ -24,12 +24,13 @@ export const Auth = ({type} : {type: 'signup' | 'signin'}) => {
             const jwt = response.data.jwt;
             console.log(jwt);
             localStorage.setItem("token", response.data.jwt);
+            localStorage.setItem("username", response.data.username);
             navigate("/blogs")
         }catch(err){
             //alert(err.message)
         }
     }
-    return <div className="h-screen flex justify-center  flex-col">
+    return <div className="h-screen flex justify-center bg-slate-200 flex-col">
             <div className="flex justify-center  ">
                 <div>
                     <div className="text-3xl font-bold text-slate-900 px-4">

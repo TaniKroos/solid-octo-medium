@@ -10,10 +10,10 @@ export const Blog = () =>{
     
     return <>
 
-    <div>
+    <div className="bg-cc2 h-screen" >
         <Appbar />
         {loading? (<LoadingSkeleton/> ): <div className="flex justify-center ">
-    <div  className="">
+    <div  className= " ">
      {blogs.map(blog => <BlogCard 
          id={blog.id}
          authorname={blog.author.username}
