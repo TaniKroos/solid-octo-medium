@@ -7,6 +7,7 @@ const app = new Hono()
  
 
 app.use('/*',cors());
+  
 app.route('api/vi/' ,authRouter)
 app.route('api/vi/',blogRouter);
  
