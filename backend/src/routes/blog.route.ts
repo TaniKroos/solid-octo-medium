@@ -140,7 +140,8 @@ blogRouter.get('/blog/:id' ,blogMiddleWare, async(c)=>{
                     select:{
                         username: true,
                     }
-                }
+                },
+                createdAt: true,
             }
         })  
         return c.json({

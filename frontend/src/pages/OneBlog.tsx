@@ -16,8 +16,9 @@ export const Bloggg   = () =>{
     }
     return (
         <div>
-           <Blogg blog={blog ?? {}} />
-            {/* @ts/ignore */}         
+            {/* @ts-ignore */}
+           <Blogg blog={blog || { id: "", title: "", content: "", createdAt: new Date(), author: { username: "" } }} />
+                   
         </div>
     )
 

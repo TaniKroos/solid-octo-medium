@@ -19,7 +19,8 @@ export const Blog = () =>{
          authorname={blog.author.username}
          content={blog.content}
          publishedDate={blog.createdAt}
-         title={blog.title} createdAt={blog.createdAt}
+         title={blog.title} 
+         createdAat={new Date(blog.createdAt)}
    />)}
     
     </div>

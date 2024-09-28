@@ -8,7 +8,7 @@ interface BlogCardInputs{
     content: string;
     publishedDate: string;
     id: string;
-    createdAt: Date;
+    createdAat: Date;
     
 }
 export const BlogCard = ({
@@ -17,13 +17,13 @@ export const BlogCard = ({
     content,
     publishedDate,
     id ,
-    createdAt,
+    createdAat,
 }:BlogCardInputs) =>{
 
 
     
    
-  const date: Date = new Date(createdAt);
+  const date: Date = new Date(createdAat);
   
   // Format the date using TypeScript types
   const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };

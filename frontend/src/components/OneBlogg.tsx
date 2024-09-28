@@ -2,7 +2,13 @@ import { Appbar } from "./Appbar"
 import {Blog} from '../hooks/Useblogs'
 import { AvatarCard } from "./BlogCard"
 export const Blogg = ({blog} : {blog: Blog}) =>{
- 
+    console.log(blog)
+    const date: Date = new Date(blog.createdAt);
+  
+    // Format the date using TypeScript types
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+      const publishedDate  = date.toLocaleDateString('en-US', options);
+   
 
       return (
         <div>
@@ -13,10 +19,10 @@ export const Blogg = ({blog} : {blog: Blog}) =>{
                     <div className=" text-5xl font-extrabold  ">
                         {blog.title}
                     </div>
-                    {/* <div className="text-slate-400 pt-3">
+                    <div className="text-slate-400 pt-3">
                         Posted on {publishedDate}
 
-                    </div> */}
+                    </div>
                     <div className="pt-4">
                         {blog.content}
                     </div>
