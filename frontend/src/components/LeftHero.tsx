@@ -10,7 +10,7 @@ export const LefHero = () => {
                     <Link to={'/signup'}>
                         <HeroButton text={'Signup'} />
                 </Link>
-                <Link to={'/signup'}> <HeroButton text={'Signin'} />
+                <Link to={'/signin'}> <HeroButton text={'Signin'} />
                 </Link>
             </div>
         </div>

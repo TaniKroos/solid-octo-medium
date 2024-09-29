@@ -1,6 +1,7 @@
 import { useState ,useEffect} from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
+import { useNavigate } from "react-router-dom";
  
 
 export interface Blog {
@@ -18,6 +19,7 @@ export interface Blog {
 
 export const useBlog = ({id}:{id:string}) => {
      const [loading, setloading] = useState(true);
+     const navigate = useNavigate();
      const [blog, setBlog] = useState<Blog | null>();
      console.log(id);
      useEffect(()=>{
@@ -27,10 +29,15 @@ export const useBlog = ({id}:{id:string}) => {
             },
  
         })
-        .then(response =>{
-               setBlog(response.data.blog);
-               setloading(false);
-        });
+        .then((response) => {
+            setBlog(response.data.blog);
+            setloading(false);
+          })
+          .catch(async (error) => {
+            if (error.response && error.response.status === 401) {
+              await navigate("/signin"); // Redirect to signin page if unauthorized
+            }
+          });
      },[id]);
 
      return {
@@ -42,6 +49,7 @@ export const useBlog = ({id}:{id:string}) => {
 export const useBlogs = () => {
      const [loading,setloading] = useState(true);
      const [blogs, setBlogs] = useState<Blog[]>([]);
+     const navigate = useNavigate();
     
      useEffect(() =>{
         axios.get(`${BACKEND_URL}/api/vi/blog/blogs`,{
@@ -50,11 +58,15 @@ export const useBlogs = () => {
             },
         })
             
-            .then(response =>{
-                 
-                setBlogs(response.data.blogs)
-                setloading(false);
-            })
+        .then((response) => {
+            setBlogs(response.data.blogs);
+            setloading(false);
+          })
+          .catch(async (error) => {
+            if (error.response && error.response.status === 401) {
+              await navigate("/signin"); // Redirect to signin page if unauthorized
+            }
+          });
      },[]);
 
      return {

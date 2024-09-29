@@ -12,23 +12,29 @@ const blogRouter = new Hono<{
       userId: string,
     }
 }>();
-async function blogMiddleWare(c: Context,next: Next){
-    const header = c.req.header('Authorization') || "";  
+async function blogMiddleWare(c: Context, next: Next) {
+    const header = c.req.header('Authorization') || "";
     const token = header.split(" ")[1];
-    const r = await verify(token,c.env.JWT_SECRET)
-    
-    if(r ){
-        c.set('userId',r.id);
-        await next()
-    }
-    else{
+
+    if (!token) {
         c.status(401);
-        return c.json({
-            msg: "Unauthorized",
-       
-        });
+        return c.json({ msg: "Missing token" });
     }
-} 
+
+    try {
+        const r = await verify(token, c.env.JWT_SECRET);
+        if (r) {
+            c.set('userId', r.id);
+            await next();
+        } else {
+            c.status(401);
+            return c.json({ msg: "Invalid token" });
+        }
+    } catch (error) {
+        c.status(401);
+        return c.json({ msg: "Server error" });
+    }
+}
 
 
 blogRouter.post('/blog' ,blogMiddleWare, async(c)=>{

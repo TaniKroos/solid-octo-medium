@@ -13,7 +13,7 @@ export const Blogg = ({blog} : {blog: Blog}) =>{
       return (
         <div>
             <Appbar />
-                <div className="grid grid-cols-12 pt-20 h-screen ">
+                <div className="grid grid-cols-12 pt-20 bg-cc2  h-screen ">
                     <div className="col-span-8 pl-40">
                     
                     <div className=" text-5xl font-extrabold  ">
